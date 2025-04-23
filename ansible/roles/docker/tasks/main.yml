@@ -8,24 +8,20 @@
   ignore_errors: yes
   changed_when: false
 
+##dockerインストール
 - name: docker yum
   become: yes
   yum:
     name: docker
-  when: Check_docker.false
+  when: Check_docker.failed
   changed_when: false
 
-##docker起動
+##docker起動,自動起動設定
 - name: start docker
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: docker
-    state: start
+    state: started
+    enabled: yes
   become: yes
+  ignore_errors: yes
 
-##docker自動起動設定
-- name: enable docker
-  ansible.builtin.service:
-    name: docker
-    state: enable
-  become: yes
-sudo systemctl enable docker
