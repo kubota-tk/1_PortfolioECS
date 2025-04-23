@@ -6,9 +6,17 @@
   ignore_errors: yes
   changed_when: false
 
+#- name: Install session-manager-plugin
+#  become: yes
+#  ansible.builtin.shell:
+#    cmd: yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
+#  when: "'The Session Manager plugin was installed successfully' not in Check_aws2.stdout"
+#  changed_when: false
+
+
 - name: Install session-manager-plugin
   become: yes
   ansible.builtin.shell:
-    cmd: yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
+    cmd: sudo yum install -y https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
   when: "'The Session Manager plugin was installed successfully' not in Check_aws2.stdout"
   changed_when: false
