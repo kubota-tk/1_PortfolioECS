@@ -16,7 +16,7 @@
 
 ##amazon-ssm-agent再起動
 - name: restart amazon-ssm-agent
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: amazon-ssm-agent
     state: restarted
   become: yes

@@ -8,6 +8,7 @@
   ignore_errors: yes
   changed_when: false
 
+##dockerインストール
 - name: docker yum
   become: yes
   yum:
@@ -17,17 +18,17 @@
 
 ##docker起動
 - name: start docker
-  ansible.builtin.service:
+  ansible.builtin.systemd:
     name: docker
     state: start
   become: yes
   ignore_errors: yes
 
 ##docker自動起動設定
-- name: enable docker
-  ansible.builtin.service:
+- name: enabled docker
+  ansible.builtin.systemd:
     name: docker
-    state: enable
+    state: enabled
   become: yes
   ignore_errors: yes
 
