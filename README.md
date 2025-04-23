@@ -1,7 +1,2 @@
-<<<<<<< HEAD
-first commit
-
-=======
-# PortfolioECS
+# ContainerTest
 AWS Farget,ECS,ECR
->>>>>>> origin/main

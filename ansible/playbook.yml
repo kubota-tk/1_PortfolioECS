@@ -1,0 +1,15 @@
+---
+- hosts: all
+
+##circleciに設定した環境変数
+  vars:   
+    aws_default_region: "{{ (lookup('env','AWS_DEFAULT_REGION')) }}"       
+    aws_ec2_access_key: "{{ (lookup('env','AWS_EC2_ACCESS_KEY')) }}"  
+    aws_ec2_secret_key: "{{ (lookup('env','AWS_EC2_SECRET_KEY')) }}"
+
+  roles:
+    - swap
+    - git
+    - aws-cli
+    - exec  
+    - docker

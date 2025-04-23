@@ -1,0 +1,6 @@
+#web: bin/rails server
+##web: bin/rails server -b 0.0.0.0
+web: bin/rails server -p 3000 -b 0.0.0.0
+
+js: yarn build --watch
+#js: $HOME/.nvm/nvm.sh && yarn build --watch

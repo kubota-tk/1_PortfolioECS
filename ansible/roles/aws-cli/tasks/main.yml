@@ -1,0 +1,53 @@
+---
+
+##aws-cli.ver2の有無チェック
+- name: Check installed aws-cli.ver2
+  ansible.builtin.command:
+    cmd: aws --version
+  register: Check_aws2
+  ignore_errors: yes
+  changed_when: false
+
+- name: remove yum
+  become: yes
+  yum:
+    name: aws-cli
+  when: "'aws-cli/2.' not in Check_aws2.stdout"
+  changed_when: false
+
+- name: Install aws-cli
+  ansible.builtin.shell:
+    cmd: |
+      curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+      unzip awscliv2.zip
+      sudo ./aws/install
+  when: "'aws-cli/2.' not in Check_aws2.stdout"
+  changed_when: false
+ 
+- name: create .aws dir
+  file:
+    dest: /home/ec2-user/.aws
+    state: directory
+    owner: ec2-user
+    group: ec2-user
+  when: "'aws-cli/2.' not in Check_aws2.stdout"
+  changed_when: false
+ 
+- name: copy config
+  template:
+    src: config.conf.j2
+    dest: /home/ec2-usre/.aws/config
+    owner: ec2-user
+    group: ec2-user
+  when: "'aws-cli/2.' not in Check_aws2.stdout"
+  changed_when: false
+ 
+- name: copy credential
+  template:
+    src: credential.conf.j2
+    dest: /home/ec2-user/.aws/credentials
+    owner: ec2-user
+    group: ec2-user
+  when: "'aws-cli/2.' not in Check_aws2.stdout"
+  changed_when: false
+

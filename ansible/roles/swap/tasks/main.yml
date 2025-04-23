@@ -1,0 +1,42 @@
+---
+##swapファイルの作成
+
+- ansible.builtin.set_fact:
+    swap_file_path: /swapfile
+
+- ansible.builtin.command:
+    cmd: dd if=/dev/zero of={{ swap_file_path }} bs={{ ansible_memtotal_mb }} count=2M
+  args:
+    creates: '{{ swap_file_path }}'
+  become: yes
+
+- ansible.builtin.file:
+    path: '{{ swap_file_path }}'
+    mode: '0600'
+  become: yes
+
+- ansible.builtin.command:
+    cmd: file {{ swap_file_path }}
+  register: swap_file_test
+  become: yes
+
+- ansible.builtin.command:
+    cmd: mkswap {{ swap_file_path }}
+  when: ansible_swaptotal_mb == 0
+  become: yes
+
+- ansible.builtin.command:
+    cmd: swapon {{ swap_file_path }}
+  when: ansible_swaptotal_mb == 0
+  become: yes
+
+- ansible.builtin.mount:
+    name: swap
+    src: '{{ swap_file_path }}'
+    fstype: swap
+    opts: defaults
+    passno: '0'
+    dump: '0'
+    state: present
+  become: yes
+
