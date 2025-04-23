@@ -16,19 +16,12 @@
   when: Check_docker.failed
   changed_when: false
 
-##docker起動
+##docker起動,自動起動設定
 - name: start docker
   ansible.builtin.systemd:
     name: docker
-    state: start
-  become: yes
-  ignore_errors: yes
-
-##docker自動起動設定
-- name: enabled docker
-  ansible.builtin.systemd:
-    name: docker
-    state: enabled
+    state: started
+    enabled: yes
   become: yes
   ignore_errors: yes
 
