@@ -16,6 +16,5 @@
   become: yes
   ansible.builtin.shell:
     cmd: yum install -y ./SessionManagerPluginSetup.exe
-lugin.rpm
   when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
   changed_when: false
