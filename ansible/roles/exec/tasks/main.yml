@@ -14,7 +14,7 @@
   when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
   changed_when: false
 
-##amazon-ssm-agent起動
+##amazon-ssm-agent再起動
 - name: restart amazon-ssm-agent
   ansible.builtin.service:
     name: amazon-ssm-agent

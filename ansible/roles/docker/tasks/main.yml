@@ -12,7 +12,7 @@
   become: yes
   yum:
     name: docker
-  when: Check_docker.false
+  when: Check_docker.failed
   changed_when: false
 
 ##docker起動
@@ -21,6 +21,7 @@
     name: docker
     state: start
   become: yes
+  ignore_errors: yes
 
 ##docker自動起動設定
 - name: enable docker
@@ -28,4 +29,5 @@
     name: docker
     state: enable
   become: yes
+  ignore_errors: yes
 
