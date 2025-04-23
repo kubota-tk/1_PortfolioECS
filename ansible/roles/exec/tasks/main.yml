@@ -18,26 +18,7 @@
 - name: restart amazon-ssm-agent
   ansible.builtin.service:
     name: amazon-ssm-agent
-    state: restart
+    state: restarted
   become: yes
 
-#- name: Download session-manager-plugin
-#  ansible.builtin.uri:
-#    url: https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm
-#    return_content: yes
-#  when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
-#  changed_when: false
-
-#- name: Unzip session-manager-plugin
-#  ansible.builtin.shell:
-#    cmd: unzip sessionmanager-bundle.zip
-#  when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
-#  changed_when: false
-
-#- name: Install session-manager-plugin
-#  become: yes
-#  ansible.builtin.shell:
-#    cmd: yum install -y ./SessionManagerPluginSetup.exe
-#  when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
-#  changed_when: false
 
