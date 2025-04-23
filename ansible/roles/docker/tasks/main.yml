@@ -1,0 +1,31 @@
+---
+
+##dockerの有無チェック
+- name: Check installed docker
+  ansible.builtin.command:
+    cmd: docker -v
+  register: Check_docker
+  ignore_errors: yes
+  changed_when: false
+
+- name: docker yum
+  become: yes
+  yum:
+    name: docker
+  when: Check_docker.false
+  changed_when: false
+
+##docker起動
+- name: start docker
+  ansible.builtin.service:
+    name: docker
+    state: start
+  become: yes
+
+##docker自動起動設定
+- name: enable docker
+  ansible.builtin.service:
+    name: docker
+    state: enable
+  become: yes
+sudo systemctl enable docker

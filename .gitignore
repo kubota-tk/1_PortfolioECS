@@ -1,0 +1,8 @@
+serverspec/vendor
+terraform/.terraform/*
+terraform/.terraform.lock.hcl
+terraform/env/dev/.terraform/*
+terraform/env/dev/.terraform.lock.hcl
+terraform/env/dev/.tflint.hcl
+
+

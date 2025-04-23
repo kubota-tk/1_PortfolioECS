@@ -1,0 +1,15 @@
+= form_for @fruit do |f|
+  - if @fruit.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@fruit.errors.count, "error")} prohibited this fruit from being saved:"
+      ul
+        - @fruit.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+    br
+    = f.label :image
+    = f.file_field :image, direct_upload: true
+  .actions = f.submit 'Save'

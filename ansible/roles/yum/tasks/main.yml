@@ -1,0 +1,17 @@
+---
+##Install Yum
+
+- name: update yum
+  yum:
+    name:
+      - aws-cli
+    state: latest
+  become: yes
+
+## パッケージがない場合にインストール
+- name: yum install package
+  become: yes
+  yum:
+    name:
+      - aws-cli
+    state: present
