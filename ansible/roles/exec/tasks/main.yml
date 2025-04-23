@@ -15,6 +15,12 @@
   when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
   changed_when: false
 
+##amazon-ssm-agent起動
+- name: restart amazon-ssm-agent
+  ansible.builtin.service:
+    name: amazon-ssm-agent
+    state: restart
+  become: yes
 
 #- name: Download session-manager-plugin
 #  ansible.builtin.uri:
@@ -36,8 +42,3 @@
 #  when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
 #  changed_when: false
 
-
-
-
-
-sudo systemctl restart amazon-ssm-agent
