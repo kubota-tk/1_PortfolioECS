@@ -35,7 +35,7 @@
  
 - name: copy config
   template:
-    src: config.conf.j2
+    src: config.j2
     dest: /home/ec2-usre/.aws/config
     owner: ec2-user
     group: ec2-user
@@ -44,7 +44,7 @@
  
 - name: copy credential
   template:
-    src: credential.conf.j2
+    src: credential.j2
     dest: /home/ec2-user/.aws/credentials
     owner: ec2-user
     group: ec2-user
