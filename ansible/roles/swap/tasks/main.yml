@@ -8,27 +8,27 @@
     cmd: dd if=/dev/zero of={{ swap_file_path }} bs={{ ansible_memtotal_mb }} count=2M
   args:
     creates: '{{ swap_file_path }}'
-  become: yes
+  become: true
 
 - ansible.builtin.file:
     path: '{{ swap_file_path }}'
     mode: '0600'
-  become: yes
+  become: true
 
 - ansible.builtin.command:
     cmd: file {{ swap_file_path }}
   register: swap_file_test
-  become: yes
+  become: true
 
 - ansible.builtin.command:
     cmd: mkswap {{ swap_file_path }}
   when: ansible_swaptotal_mb == 0
-  become: yes
+  become: true
 
 - ansible.builtin.command:
     cmd: swapon {{ swap_file_path }}
   when: ansible_swaptotal_mb == 0
-  become: yes
+  become: true
 
 - ansible.builtin.mount:
     name: swap
@@ -38,5 +38,5 @@
     passno: '0'
     dump: '0'
     state: present
-  become: yes
+  become: true
 
