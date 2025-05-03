@@ -7,5 +7,5 @@
     name: git
     state: present
     lock_timeout: 180    ##デフォルトで30秒
-  become: yes
+  become: true
 

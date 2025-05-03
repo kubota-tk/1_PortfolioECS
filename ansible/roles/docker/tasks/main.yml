@@ -5,12 +5,12 @@
   ansible.builtin.command:
     cmd: docker -v
   register: Check_docker
-  ignore_errors: yes
+  ignore_errors: true
   changed_when: false
 
 ##dockerインストール
 - name: docker yum
-  become: yes
+  become: true
   yum:
     name: docker
   when: Check_docker.failed
@@ -22,6 +22,6 @@
     name: docker
     state: started
     enabled: yes
-  become: yes
-  ignore_errors: yes
+  become: true
+  ignore_errors: true
 

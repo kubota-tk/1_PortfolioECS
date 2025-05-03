@@ -3,13 +3,14 @@
   ansible.builtin.command:
     cmd: session-manager-plugin
   register: Check_plugin
-  ignore_errors: yes
+  ignore_errors: true
   changed_when: false
 
 - name: Install session-manager-plugin
-  become: yes
+  become: true
   ansible.builtin.yum:
-    name: "https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm"
+#    name: "https://s3.amazonaws.com/ec2-downloads-windows/SSMAgent/latest/linux_amd64/amazon-ssm-agent.rpm"
+    name: "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/linux_64bit/session-manager-plugin.rpm"
 #    return_content: yes
   when: "'The Session Manager plugin was installed successfully' not in Check_plugin"
   changed_when: false
@@ -19,6 +20,6 @@
   ansible.builtin.systemd:
     name: amazon-ssm-agent
     state: restarted
-  become: yes
+  become: true
 
 
