@@ -17,7 +17,7 @@ end
 
 #ECS Exec使用のため、SessionManagerPluginのインストール確認
 describe command('session-manager-plugin') do
-  its(:stdout) { should match /The Session Manager plugin was installed successfully$/ }
+  its(:stdout) { should match /The Session Manager plugin was installed successfully/ }
 end
 
 #dockerが起動していることの確認
