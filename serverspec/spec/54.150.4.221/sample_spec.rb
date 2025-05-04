@@ -7,7 +7,7 @@ end
 
 #22番ポートの疎通確認
 describe port(22) do
-  it { should be_listening }
+    it { should be_listening }
 end
 
 #awsコマンド、s3確認ができるか
