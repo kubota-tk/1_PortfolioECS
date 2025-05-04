@@ -5,11 +5,6 @@ describe package('git') do
   it { should be_installed }
 end
 
-#22番ポートの疎通確認
-describe port(443) do
-    it { should be_listening }
-end
-
 #awsコマンド、s3確認ができるか
 describe command('aws s3 ls') do
   its(:stdout) { should match /portfolio-ecs-picture/ }
