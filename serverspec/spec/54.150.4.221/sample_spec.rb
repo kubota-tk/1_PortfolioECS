@@ -6,7 +6,7 @@ describe package('git')do
 end
 
 #22番ポートの疎通確認
-describe port(80)do
+describe port(22)do
  it { should be_listening }
 end
 
