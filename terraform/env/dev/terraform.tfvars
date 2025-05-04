@@ -79,7 +79,7 @@ ecs_container_2_mem_reservation = 128
 ecs_container_2_app_protocol = "http"
 
 ######## snsモジュール ########
-email = "hhzmht@onetm-ml.com"
+email = "nffaog@onetm-ml.com"
 
 ######## cloudwatchモジュール ########
 
