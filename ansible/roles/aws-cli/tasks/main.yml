@@ -36,7 +36,7 @@
 - name: copy config
   template:
     src: config.j2
-    dest: /home/ec2-usre/.aws/config
+    dest: /home/ec2-user/.aws/config
     owner: ec2-user
     group: ec2-user
   when: "'aws-cli/2.' not in Check_aws2.stdout"
