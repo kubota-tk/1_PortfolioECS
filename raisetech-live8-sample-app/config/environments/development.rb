@@ -76,7 +76,7 @@ Rails.application.configure do
   config.action_controller.raise_on_missing_callback_actions = true
 
   # Connection permission（OK）
-  config.hosts << "PortfolioECS-alb-712004491.ap-northeast-1.elb.amazonaws.com"
+  config.hosts << "PortfolioECS-alb-388655080.ap-northeast-1.elb.amazonaws.com"
 
   config.file_watcher = ActiveSupport::FileUpdateChecker
 
