@@ -42,10 +42,10 @@
   when: "'aws-cli/2.' not in Check_aws2.stdout"
   changed_when: false
  
-- name: copy credential
+- name: copy credentials
   template:
-    src: credential.j2
-    dest: /home/ec2-user/.aws/credential
+    src: credentials.j2
+    dest: /home/ec2-user/.aws/credentials
     owner: ec2-user
     group: ec2-user
   when: "'aws-cli/2.' not in Check_aws2.stdout"
