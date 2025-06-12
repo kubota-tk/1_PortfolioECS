@@ -323,7 +323,7 @@ resource "aws_appautoscaling_target" "ecs_service_target" {
   max_capacity       = 2
 }
 
-### スケール挙動設定（300秒のクールタイム毎に-1スケールアウト） ###
+### スケール挙動設定（300秒のクールタイム毎に+1スケールアウト） ###
 resource "aws_appautoscaling_policy" "scale_out" {
   name                = "scale-out"
   resource_id         = "service/${aws_ecs_cluster.ecs_cluster.name}/${aws_ecs_service.ecs_service.name}"
