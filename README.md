@@ -17,7 +17,7 @@ CPU使用率75%以上でコンテナのスケールアウト、CPU使用率25%�
 
 &emsp;構成図  
   
-<img src="images/0.1_構成図.png" width="75%">  
+<img src="images/0.1_構成図.png" width="100%">  
   
 &emsp;VPCリソースマップ  
 <img src="images/0.2_vpc_map.png" width="75%">
@@ -71,9 +71,7 @@ template
 - EC2（踏み台）に必要な各種ツールのインストールや設定を実行。  
   
 &emsp;CircleCIのAnsible実行状況  
-<img src="images/3.1_ansible1.png" width="75%">  
-  
-<img src="images/3.2_ansible2.png" width="75%">   
+<img src="images/3.1_ansible1.png" width="75%"><img src="images/3.2_ansible2.png" width="50%">   
   
 
 &emsp;Ansibleのディレクトリ構成  
@@ -120,7 +118,7 @@ template
   
 &emsp;ECRへのイメージPushコマンド  
   
-<img src="images/5.2_image_push2.png" width="75%">  
+<img src="images/5.2_image_push2.png" width="100%">  
 
 
 template
@@ -158,13 +156,14 @@ template
   
 ## 7. Fargateのコンテナとスケーリングの確認   
 &emsp;ECS Fargateのタスクと、コンテナ（app_container、nginx_container）作成状況。     
-<img src="images/7.1_ECS_1.png" width="75%"><img src="images/7.2_ECS_2.png" width="75%">  
+<img src="images/7.1_ECS_1.png" width="75%">  
   
-  
+<img src="images/7.2_ECS_2.png" width="75%">  
+    
 
 &emsp;ECSのスケーリング設定と、実際にスケールアウト、インが実行された記録。     
-<img src="images/7.3_ECS_3.png" width="75%">    
-  
+<img src="images/7.3_ECS_3.png" width="100%">  
+      
 
 &emsp;スケールアウトのアラーム内容（CPU使用率75%以上の場合実施）   
 <img src="images/7.4_ECS_4.png" width="75%">  
