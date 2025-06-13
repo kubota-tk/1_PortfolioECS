@@ -12,12 +12,13 @@
 5. ServerSpecでは、EC2（踏み台用）のセットアップ状況のテストを実施する。  
 6. ECS Fargateはプライベート環境で構築され、外部通信にVPCエンドポイントを使用する。app_container(Pumaサーバー、WEBアプリケーションのデプロイ)とnginx_container（WEBサーバー）の2つのコンテナで実装される。    
 CPU使用率75%以上でコンテナのスケールアウト、CPU使用率25%以下でコンテナのスケールインを行う。  
-7. ECS Fargateの状態監視をALB,ターゲットグループで行い、通信異常が発生した場合はCloudWatchアラーム通知,SNSでメール送信を行う。
+7. ECS Fargateの状態監視をALB,ターゲットグループで行い、通信異常が発生した場合はCloudWatchアラーム通知,SNSでメール送信を行う。  
+  
 
-
-&emsp;構成図
+&emsp;構成図  
+  
 <img src="images/0.1_構成図.png" width="75%">  
-
+  
 &emsp;VPCリソースマップ  
 <img src="images/0.2_vpc_map.png" width="75%">
 
