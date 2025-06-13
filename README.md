@@ -20,7 +20,7 @@ CPU使用率75%以上でコンテナのスケールアウト、CPU使用率25%�
 <img src="images/0.1_構成図.png" width="100%">  
   
 &emsp;VPCリソースマップ  
-<img src="images/0.2_vpc_map.png" width="75%">
+<img src="images/0.2_vpc_map.png" width="100%">
 
 
 ## 1. CircleCIによる環境変数・SSH Key設定と、実行状況  
@@ -70,13 +70,10 @@ template
 ## 3. Ansibleのセットアップ設定
 - EC2（踏み台）に必要な各種ツールのインストールや設定を実行。  
   
-&emsp;CircleCIのAnsible実行状況  
-<img src="images/3.1_ansible1.png" width="75%"><img src="images/3.2_ansible2.png" width="50%">   
+&emsp;CircleCIのAnsible実行状況、&emsp;Ansibleのディレクトリ構成  
+<img src="images/3.1_ansible1.png" width="75%">  
   
-
-&emsp;Ansibleのディレクトリ構成  
-  
-<img src="images/3.3_ansible3.png" width="50%">
+<img src="images/3.2_ansible2.png" width="70%"><img src="images/3.3_ansible3.png" width="30%">
 
 
 Template(Ansibleの設定ファイル）
@@ -140,13 +137,13 @@ template
 
 &emsp;EC2で作成したイメージをECRにプッシュする  
         
-<img src="images/6.3_EC2_3.png" width="75%">  
+<img src="images/6.3_EC2_3.png" width="100%">  
   
 
 (2) ECS FargateへECS Exec通信ができることの確認  
 &emsp;EC2にSSH接続し、ECS Execでコンテナに接続、コマンドを実行  
    
-<img src="images/6.4_EC2_4.png" width="75%">  
+<img src="images/6.4_EC2_4.png" width="100%">  
   
 
 (3) アプリの画像保管場所、S3バケットに接続できることの確認  
@@ -176,7 +173,7 @@ template
 &emsp;ECS サービス画面から、スケールアウトでタスクが2個に増えた時の状況を確認。    
 <img src="images/7.6_ECS_6.png" width="75%">  
   
-<img src="images/7.7_ECS_7.png" width="75%">  
+<img src="images/7.7_ECS_7.png" width="100%">  
   
     
 
@@ -189,8 +186,9 @@ template
 
 &emsp;CloudWatchアラーム通知と、送信されたメールの内容。  
  
-<img src="images/8.3_ararm3.png" width="75%">  
-<img src="images/8.4_ararm4.png" width="75%">  
+<img src="images/8.3_ararm3.png" width="100%">  
+  
+<img src="images/8.4_ararm4.png" width="100%">  
 
 
 
