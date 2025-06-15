@@ -12,8 +12,8 @@
 - backend設定はs3に設定
 - 環境変数はterraform.tfvarsで設定
 
-## ディレクトリの作業環境の構成がわかる図
-  ![図](../images/2.2_terraform2.png)
-
+## ディレクトリの作業環境の構成がわかる図  
+  
+<img src="../images/2.2_terraform2.png" width="50%">
 
 
