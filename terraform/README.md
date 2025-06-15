@@ -2,7 +2,7 @@
 - Terraformを活用し、AWS環境（「ECS Fargate(app_containerコンテナ,nginx_containerコンテナ)」,「RDS(MySQL)」,「ALB」,「S3」,「CloudWatch」,「SNS」,「EC2(踏台用)」,「VPC」)を作成
 - ECS（Fargate）、RDSで、サーバー３層構造、ALBで分散環境に対応
 - S3で、CRUDアプリの画像保管が可能
-- ECS（Fargate）にスケールアウト、スケーイン設定
+- ECS（Fargate）にスケールアウト、スケールイン設定
 - CloudWatchとSNSで、EC2とALB間の通信異常を検知、アラーム通知が可能
 
 ## 開発環境について
